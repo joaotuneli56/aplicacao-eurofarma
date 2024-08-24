@@ -9,9 +9,5 @@ import { Router, RouterOutlet } from '@angular/router';
   styleUrl: './homepage.component.css'
 })
 export class HomepageComponent {
-  constructor(private router: Router) { }
 
-  navigateTo(departamento: string) {
-    this.router.navigate([`/listagem-${departamento.toLowerCase()}`]);
-  }
 }
