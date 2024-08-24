@@ -1,27 +1,39 @@
-# OnboardingApp
+# Passo a passo para rodar aplicação:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
+- [ ] 1° clonar o projeto
+```
+git clone https://github.com/joaotuneli56/aplicacao-eurofarma.git
+```
 
-## Development server
+- [ ] 2° Entrar na pasta aplicacao-eurofarma.
+```
+cd aplicacao-eurofarma
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [ ] 3° passo rodar o seguinte comando
+```
+npm install -g @angular/cli
+```
 
-## Code scaffolding
+- [ ] 4° passo rodar o seguinte comando
+```
+Set-ExecutionPolicy RemoteSigned
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [ ] 5° passo rodar o seguinte comando
+```
+npm install
+```
 
-## Build
+- [ ] 6° abri um segundo terminal
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- [ ] 7° instalar o pacote `json-server`
+```
+npm install -g json-server
+```
 
-## Running unit tests
+- [ ] 8° rodar o servidor
+```
+json-server --watch db.json --port 3000
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
