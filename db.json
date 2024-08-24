@@ -1,0 +1,184 @@
+{
+  "colaboradores": [
+    {
+      "id": 1,
+      "nome": "Ana Souza",
+      "email": "ana.souza@empresa.com",
+      "senha": "senha123",
+      "departamento": "Recursos Humanos",
+      "cargo": "Analista de RH",
+      "gestor": false
+    },
+    {
+      "id": 2,
+      "nome": "Carlos Pereira",
+      "email": "carlos.pereira@empresa.com",
+      "senha": "senha456",
+      "departamento": "Tecnologia da Informação",
+      "cargo": "Desenvolvedor",
+      "gestor": false
+    },
+    {
+      "id": 3,
+      "nome": "Fernanda Lima",
+      "email": "fernanda.lima@empresa.com",
+      "senha": "senha789",
+      "departamento": "Comercial",
+      "cargo": "Vendedor",
+      "gestor": false
+    },
+    {
+      "id": 4,
+      "nome": "João Santos",
+      "email": "joao.santos@empresa.com",
+      "senha": "senha321",
+      "departamento": "Comercial",
+      "cargo": "Gerente de Vendas",
+      "gestor": true
+    },
+    {
+      "id": 5,
+      "nome": "Mariana Silva",
+      "email": "mariana.silva@empresa.com",
+      "senha": "senha654",
+      "departamento": "Financeiro",
+      "cargo": "Assistente Financeiro",
+      "gestor": false
+    },
+    {
+      "id": 6,
+      "nome": "Luiz Ferreira",
+      "email": "luiz.ferreira@empresa.com",
+      "senha": "senha987",
+      "departamento": "Tecnologia da Informação",
+      "cargo": "Analista de Suporte",
+      "gestor": false
+    },
+    {
+      "id": 7,
+      "nome": "Patrícia Almeida",
+      "email": "patricia.almeida@empresa.com",
+      "senha": "senha741",
+      "departamento": "Comercial",
+      "cargo": "Assistente Comercial",
+      "gestor": false
+    },
+    {
+      "id": 8,
+      "nome": "Rodrigo Batista",
+      "email": "rodrigo.batista@empresa.com",
+      "senha": "senha852",
+      "departamento": "Recursos Humanos",
+      "cargo": "Coordenador de RH",
+      "gestor": true
+    },
+    {
+      "id": 9,
+      "nome": "Eduardo Santos",
+      "email": "eduardo.santos@empresa.com",
+      "senha": "senha963",
+      "departamento": "Tecnologia da Informação",
+      "cargo": "Desenvolvedor Full-Stack",
+      "gestor": false
+    },
+    {
+      "id": 10,
+      "nome": "Marcela Costa",
+      "email": "marcela.costa@empresa.com",
+      "senha": "senha159",
+      "departamento": "Recursos Humanos",
+      "cargo": "Assistente de RH",
+      "gestor": false
+    },
+    {
+      "id": 11,
+      "nome": "Juliana Oliveira",
+      "email": "juliana.oliveira@empresa.com",
+      "senha": "senha753",
+      "departamento": "Comercial",
+      "cargo": "Vendedora",
+      "gestor": false
+    },
+    {
+      "id": 12,
+      "nome": "Bruno Carvalho",
+      "email": "bruno.carvalho@empresa.com",
+      "senha": "senha951",
+      "departamento": "Tecnologia da Informação",
+      "cargo": "Desenvolvedor Front-End",
+      "gestor": false
+    },
+    {
+      "id": 13,
+      "nome": "Sofia Mendes",
+      "email": "sofia.mendes@empresa.com",
+      "senha": "senha852",
+      "departamento": "Recursos Humanos",
+      "cargo": "Analista de Benefícios",
+      "gestor": false
+    },
+    {
+      "id": 14,
+      "nome": "Rafael Duarte",
+      "email": "rafael.duarte@empresa.com",
+      "senha": "senha741",
+      "departamento": "Comercial",
+      "cargo": "Analista Comercial",
+      "gestor": false
+    },
+    {
+      "id": 15,
+      "nome": "Vivian Rocha",
+      "email": "vivian.rocha@empresa.com",
+      "senha": "senha258",
+      "departamento": "Tecnologia da Informação",
+      "cargo": "Arquiteta de Soluções",
+      "gestor": false
+    },
+    {
+      "id": 16,
+      "nome": "Gustavo Lima",
+      "email": "gustavo.lima@empresa.com",
+      "senha": "senha963",
+      "departamento": "Comercial",
+      "cargo": "Representante Comercial",
+      "gestor": false
+    },
+    {
+      "id": 17,
+      "nome": "Clara Nunes",
+      "email": "clara.nunes@empresa.com",
+      "senha": "senha159",
+      "departamento": "Recursos Humanos",
+      "cargo": "Analista de Treinamento",
+      "gestor": false
+    },
+    {
+      "id": 18,
+      "nome": "Leandro Martins",
+      "email": "leandro.martins@empresa.com",
+      "senha": "senha357",
+      "departamento": "Tecnologia da Informação",
+      "cargo": "Desenvolvedor Back-End",
+      "gestor": false
+    },
+    {
+      "id": 19,
+      "nome": "Camila Freitas",
+      "email": "camila.freitas@empresa.com",
+      "senha": "senha258",
+      "departamento": "Comercial",
+      "cargo": "Assistente de Vendas",
+      "gestor": false
+    },
+    {
+      "id": 20,
+      "nome": "Felipe Andrade",
+      "email": "felipe.andrade@empresa.com",
+      "senha": "senha753",
+      "departamento": "Recursos Humanos",
+      "cargo": "Especialista em Recrutamento",
+      "gestor": false
+    }
+  ]
+}
