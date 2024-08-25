@@ -1,1 +1,65 @@
-<h1 class="display-1">BEM VINDO AO HOMEPAGE</h1>
+<nav class="navbar navbar-expand-lg" style="background-color: #0D4B8A;">
+  <a class="navbar-brand text-white ms-2" href="">Onboarding App</a>
+  <div class="ms-auto d-flex align-items-center">
+    <button class="btn btn-success me-2">ÁREA DO GESTOR</button>
+    <button class="btn btn-warning me-2">ÁREA DE APRENDIZADO</button>
+    <button class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#logoutModal">
+      LOGOUT
+    </button>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <div class="bg-light rounded border border-1 border-secondary w-75 mx-auto">
+    <h1 class="text-center my-3 py-3">Listagem dos Colaboradores</h1>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <!-- Tabela de Funcionários -->
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Departamento</th>
+                <th>Cargo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let colaborador of colaboradores">
+                <td>{{ colaborador.nome }}</td>
+                <td>{{ colaborador.email }}</td>
+                <td>{{ colaborador.departamento }}</td>
+                <td>{{ colaborador.cargo }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Logout -->
+  <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="logoutModalLabel">Confirmar Logout</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Você tem certeza que deseja sair?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="logout()">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
