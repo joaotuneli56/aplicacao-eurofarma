@@ -43,5 +43,10 @@
     <div class="text-center mt-3">
       <button class="btn btn-link p-0" (click)="irParaCadastro()">Não tem uma conta? Cadastre-se</button>
     </div>
+
+    <!-- Mensagem de sucesso -->
+    <div *ngIf="successMessage" class="alert alert-success mt-3" role="alert">
+      {{ successMessage }}
+    </div>
   </div>
 </div>

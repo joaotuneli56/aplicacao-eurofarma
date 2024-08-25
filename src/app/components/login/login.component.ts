@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { DbServiceService } from './../../services/db-service.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -11,43 +11,49 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
-  loginForm: FormGroup;
+export class LoginComponent implements OnInit {
+  loginForm!: FormGroup;
   submitted = false;
+  successMessage: string | null = null; // Adiciona uma propriedade para a mensagem de sucesso
 
-  constructor(private fb: FormBuilder, private router: Router, private dbService: DbServiceService) {
-    this.loginForm = this.fb.group({
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       senha: ['', Validators.required]
     });
   }
 
-  // Atualize o getter para usar notação de colchetes
   get f() {
     return this.loginForm.controls;
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.submitted = true;
 
     if (this.loginForm.invalid) {
       return;
     }
 
-    this.dbService.getColaboradores().subscribe(colaboradores => {
-      const user = colaboradores.find(
-        u => u.email === this.f['email'].value && u.senha === this.f['senha'].value
-      );
+    // Aqui você pode adicionar a lógica de autenticação
 
-      if (user) {
-        this.router.navigate(['/homepage']);
-      } else {
-        console.error('Email ou senha inválidos');
-      }
-    });
+    // Defina a mensagem de sucesso e depois redirecione
+    this.successMessage = 'Login realizado com sucesso!';
+
+    setTimeout(() => {
+      this.redirecionarParaHome();
+    }, 1000); // Espera 1 segundo antes de redirecionar para mostrar a mensagem
   }
 
-  irParaCadastro() {
+  redirecionarParaHome(): void {
+    this.router.navigate(['/home']);
+  }
+
+  irParaCadastro(): void {
     this.router.navigate(['/cadastro']);
   }
 }
