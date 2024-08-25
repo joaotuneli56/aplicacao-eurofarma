@@ -1,0 +1,19 @@
+.container {
+  height: 100vh;
+}
+
+.logo-img {
+  max-width: 100%;
+  height: auto;
+  max-height: 150px; /* Ajuste a altura máxima conforme necessário */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.border-box {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #f8f9fa;
+}

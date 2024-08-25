@@ -1,34 +1,114 @@
-<div class="container">
-  <h2 class="my-4">Cadastro de Colaborador</h2>
-  <form (ngSubmit)="onSubmit()" #cadastroForm="ngForm">
-    <div class="form-group">
-      <label for="nome">Nome</label>
-      <input type="text" id="nome" class="form-control" [(ngModel)]="novoColaborador.nome" name="nome" required>
+<div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+  <div class="logo mb-4">
+    <!-- Insira aqui o caminho para a sua logo -->
+    <img src="assets/logo.png" alt="Logo" class="logo-img mb-4">
+  </div>
+  <div class="border-box p-4">
+    <h2 class="text-center mb-4">Cadastro</h2>
+    <form [formGroup]="cadastroForm" (ngSubmit)="cadastrar()">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="nome" class="form-label">Nome</label>
+          <input
+            type="text"
+            id="nome"
+            formControlName="nome"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['nome'].errors }"
+          />
+          <div *ngIf="submitted && f['nome'].errors" class="invalid-feedback">
+            <div *ngIf="f['nome'].errors['required']">Nome é obrigatório</div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+          />
+          <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+            <div *ngIf="f['email'].errors['required']">Email é obrigatório</div>
+            <div *ngIf="f['email'].errors['email']">Email inválido</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="senha" class="form-label">Senha</label>
+          <input
+            type="password"
+            id="senha"
+            formControlName="senha"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['senha'].errors }"
+          />
+          <div *ngIf="submitted && f['senha'].errors" class="invalid-feedback">
+            <div *ngIf="f['senha'].errors['required']">Senha é obrigatória</div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="departamento" class="form-label">Departamento</label>
+          <select
+            id="departamento"
+            formControlName="departamento"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['departamento'].errors }"
+          >
+            <option value="">Selecione um departamento</option>
+            <option value="TI">TI</option>
+            <option value="RH">RH</option>
+            <option value="Comercial">Comercial</option>
+          </select>
+          <div *ngIf="submitted && f['departamento'].errors" class="invalid-feedback">
+            <div *ngIf="f['departamento'].errors['required']">Departamento é obrigatório</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">É Gestor</label>
+          <div class="form-check">
+            <input
+              type="radio"
+              id="gestorSim"
+              formControlName="gestor"
+              value="true"
+              class="form-check-input"
+              [ngClass]="{ 'is-invalid': submitted && f['gestor'].errors }"
+            />
+            <label for="gestorSim" class="form-check-label">Sim</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              id="gestorNao"
+              formControlName="gestor"
+              value="false"
+              class="form-check-input"
+              [ngClass]="{ 'is-invalid': submitted && f['gestor'].errors }"
+            />
+            <label for="gestorNao" class="form-check-label">Não</label>
+          </div>
+          <div *ngIf="submitted && f['gestor'].errors" class="invalid-feedback">
+            <div *ngIf="f['gestor'].errors['required']">Gestor é obrigatório</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+      </div>
+    </form>
+
+    <div class="text-center mt-3">
+      <button class="btn btn-link p-0" (click)="irParaLogin()">Já tem uma conta? Faça login</button>
     </div>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" class="form-control" [(ngModel)]="novoColaborador.email" name="email" required>
-    </div>
-    <div class="form-group">
-      <label for="senha">Senha</label>
-      <input type="password" id="senha" class="form-control" [(ngModel)]="novoColaborador.senha" name="senha" required>
-    </div>
-    <div class="form-group">
-      <label for="departamento">Departamento</label>
-      <select id="departamento" class="form-control" [(ngModel)]="novoColaborador.departamento" name="departamento" required>
-        <option value="Tecnologia da Informação">TI</option>
-        <option value="Comercial">Comercial</option>
-        <option value="Recursos Humanos">RH</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="cargo">Cargo</label>
-      <input type="text" id="cargo" class="form-control" [(ngModel)]="novoColaborador.cargo" name="cargo" required>
-    </div>
-    <div class="form-check">
-      <input type="checkbox" id="gestor" class="form-check-input" [(ngModel)]="novoColaborador.gestor" name="gestor">
-      <label for="gestor" class="form-check-label">É Gestor?</label>
-    </div>
-    <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
-  </form>
+  </div>
 </div>

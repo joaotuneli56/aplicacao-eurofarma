@@ -1,0 +1,12 @@
+.container {
+  height: 100vh;
+}
+
+.logo-img {
+  max-width: 100%;
+  height: auto;
+  max-height: 100px; /* Ajuste a altura máxima conforme necessário */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

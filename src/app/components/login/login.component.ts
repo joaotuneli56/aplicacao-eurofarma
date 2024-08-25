@@ -2,37 +2,52 @@ import { Router } from '@angular/router';
 import { DbServiceService } from './../../services/db-service.service';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  email: string = '';
-  senha: string = '';
-  erroLogin: string = '';
+  loginForm: FormGroup;
+  submitted = false;
 
-  constructor(private DbServiceService: DbServiceService, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private dbService: DbServiceService) {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      senha: ['', Validators.required]
+    });
+  }
 
-  onLogin() {
-    this.DbServiceService.getColaboradores().subscribe(colaboradores => {
-      const usuario = colaboradores.find(colaborador => colaborador.email === this.email && colaborador.senha === this.senha);
+  // Atualize o getter para usar notação de colchetes
+  get f() {
+    return this.loginForm.controls;
+  }
 
-      if (usuario) {
-        // Redireciona para a HomePage
-        this.router.navigate(['/home']);
+  onSubmit() {
+    this.submitted = true;
+
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    this.dbService.getColaboradores().subscribe(colaboradores => {
+      const user = colaboradores.find(
+        u => u.email === this.f['email'].value && u.senha === this.f['senha'].value
+      );
+
+      if (user) {
+        this.router.navigate(['/homepage']);
       } else {
-        this.erroLogin = 'Email ou senha inválidos!';
+        console.error('Email ou senha inválidos');
       }
     });
   }
 
-  onCadastrar() {
-    // Redireciona para a tela de cadastro
+  irParaCadastro() {
     this.router.navigate(['/cadastro']);
   }
 }
