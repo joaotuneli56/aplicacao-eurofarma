@@ -1,4 +1,4 @@
-# Passo a passo para rodar aplicação:
+# Passo a passo para testar a aplicação:
 
 - [ ] 1° clonar o projeto
 
