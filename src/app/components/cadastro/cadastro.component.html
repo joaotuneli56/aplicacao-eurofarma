@@ -6,7 +6,9 @@
   <div class="border-box p-4">
     <h2 class="text-center mb-4">Cadastro</h2>
     <form [formGroup]="cadastroForm" (ngSubmit)="cadastrar()">
+      <!-- Campos do formulário -->
       <div class="row">
+        <!-- Nome -->
         <div class="col-md-6 mb-3">
           <label for="nome" class="form-label">Nome</label>
           <input
@@ -20,7 +22,7 @@
             <div *ngIf="f['nome'].errors['required']">Nome é obrigatório</div>
           </div>
         </div>
-
+        <!-- Email -->
         <div class="col-md-6 mb-3">
           <label for="email" class="form-label">Email</label>
           <input
@@ -36,7 +38,7 @@
           </div>
         </div>
       </div>
-
+      <!-- Senha -->
       <div class="row">
         <div class="col-md-6 mb-3">
           <label for="senha" class="form-label">Senha</label>
@@ -51,7 +53,7 @@
             <div *ngIf="f['senha'].errors['required']">Senha é obrigatória</div>
           </div>
         </div>
-
+        <!-- Departamento -->
         <div class="col-md-6 mb-3">
           <label for="departamento" class="form-label">Departamento</label>
           <select
@@ -70,7 +72,7 @@
           </div>
         </div>
       </div>
-
+      <!-- Gestor -->
       <div class="row">
         <div class="col-md-6 mb-3">
           <label class="form-label">É Gestor</label>
@@ -106,6 +108,11 @@
         <button type="submit" class="btn btn-primary">Cadastrar</button>
       </div>
     </form>
+
+    <!-- Mensagem de sucesso -->
+    <div *ngIf="successMessage" class="alert alert-success mt-3" role="alert">
+      {{ successMessage }}
+    </div>
 
     <div class="text-center mt-3">
       <button class="btn btn-link p-0" (click)="irParaLogin()">Já tem uma conta? Faça login</button>

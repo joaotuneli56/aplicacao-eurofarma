@@ -179,6 +179,22 @@
       "departamento": "Recursos Humanos",
       "cargo": "Especialista em Recrutamento",
       "gestor": false
+    },
+    {
+      "id": "4143",
+      "nome": "João Pedro",
+      "email": "joaotunelipedromoura@gmail.com",
+      "senha": "asdasdas",
+      "departamento": "RH",
+      "gestor": "true"
+    },
+    {
+      "id": "ab5a",
+      "nome": "João Pedro",
+      "email": "joaotunelipedromoura@gmail.com",
+      "senha": "2222",
+      "departamento": "RH",
+      "gestor": "true"
     }
   ]
 }

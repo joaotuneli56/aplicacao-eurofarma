@@ -1,11 +1,12 @@
 import { DbServiceService } from './../../services/db-service.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Colaborador } from '../../Models/colaborador';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { response } from 'express';
 import { error } from 'console';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-cadastro',
@@ -14,18 +15,24 @@ import { error } from 'console';
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.css'
 })
-export class CadastroComponent {
-  cadastroForm: FormGroup;
+export class CadastroComponent implements OnInit {
+  cadastroForm!: FormGroup;
   submitted = false;
+  successMessage: string | null = null;
 
-  constructor(private fb: FormBuilder, private router: Router, private dbService: DbServiceService) {
-    this.cadastroForm = this.fb.group({
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: HttpClient,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.cadastroForm = this.formBuilder.group({
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       senha: ['', Validators.required],
       departamento: ['', Validators.required],
-      cargo: ['', Validators.required],
-      gestor: [false, Validators.required]
+      gestor: ['', Validators.required]
     });
   }
 
@@ -40,22 +47,30 @@ export class CadastroComponent {
       return;
     }
 
-    const novoColaborador: Colaborador = {
-      id: 0, // Defina como necessário
-      nome: this.f['nome'].value,
-      email: this.f['email'].value,
-      senha: this.f['senha'].value,
-      departamento: this.f['departamento'].value,
-      cargo: this.f['cargo'].value,
-      gestor: this.f['gestor'].value
-    };
+    // Dados do formulário
+    const novoColaborador = this.cadastroForm.value;
 
-    this.dbService.addColaborador(novoColaborador).subscribe(response => {
-      this.submitted = false; // Resetar o estado do formulário após o cadastro bem-sucedido
-      this.router.navigate(['/login']);
-    }, error => {
-      console.error('Erro ao cadastrar colaborador:', error);
-    });
+    // Requisição para adicionar o colaborador
+    this.http.post('http://localhost:3000/colaboradores', novoColaborador)
+      .subscribe({
+        next: () => {
+          // Mensagem de sucesso
+          this.successMessage = 'Cadastro realizado com sucesso!';
+
+          // Limpar formulário após o sucesso
+          this.cadastroForm.reset();
+          this.submitted = false;
+
+          // Redirecionar para a tela de login após 2 segundos
+          setTimeout(() => {
+            this.router.navigate(['/login']);
+          }, 2000);
+        },
+        error: (err) => {
+          console.error('Erro ao cadastrar colaborador', err);
+          // Tratar erro, se necessário
+        }
+      });
   }
 
   irParaLogin() {
