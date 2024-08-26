@@ -4,8 +4,6 @@ import { Colaborador } from '../../Models/colaborador';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { response } from 'express';
-import { error } from 'console';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -13,17 +11,16 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './cadastro.component.html',
-  styleUrl: './cadastro.component.css'
+  styleUrls: ['./cadastro.component.css']  // Corrigido aqui
 })
 export class CadastroComponent implements OnInit {
   cadastroForm!: FormGroup;
-  submitted = false;
   successMessage: string | null = null;
 
   constructor(
     private formBuilder: FormBuilder,
-    private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private dbService: DbServiceService
   ) {}
 
   ngOnInit(): void {
@@ -32,48 +29,25 @@ export class CadastroComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       senha: ['', Validators.required],
       departamento: ['', Validators.required],
-      gestor: ['', Validators.required]
+      cargo: ['', Validators.required],
+      gestor: [false]
     });
   }
 
-  get f() {
-    return this.cadastroForm.controls;
-  }
-
-  cadastrar() {
-    this.submitted = true;
-
+  onSubmit(): void {
     if (this.cadastroForm.invalid) {
       return;
     }
 
-    // Dados do formulário
-    const novoColaborador = this.cadastroForm.value;
-
-    // Requisição para adicionar o colaborador
-    this.http.post('http://localhost:3000/colaboradores', novoColaborador)
-      .subscribe({
-        next: () => {
-          // Mensagem de sucesso
-          this.successMessage = 'Cadastro realizado com sucesso!';
-
-          // Limpar formulário após o sucesso
-          this.cadastroForm.reset();
-          this.submitted = false;
-
-          // Redirecionar para a tela de login após 2 segundos
-          setTimeout(() => {
-            this.router.navigate(['/login']);
-          }, 2000);
-        },
-        error: (err) => {
-          console.error('Erro ao cadastrar colaborador', err);
-          // Tratar erro, se necessário
-        }
-      });
+    this.dbService.addColaborador(this.cadastroForm.value).subscribe(() => {
+      this.successMessage = 'Cadastro realizado com sucesso!';
+      setTimeout(() => {
+        this.irParaLogin(); // Redireciona para a tela de login após o cadastro
+      }, 1000);
+    });
   }
 
-  irParaLogin() {
+  irParaLogin(): void { // Método para redirecionar para a página de login
     this.router.navigate(['/login']);
   }
 }

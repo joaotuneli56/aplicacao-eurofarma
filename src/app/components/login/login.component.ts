@@ -14,11 +14,13 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   submitted = false;
-  successMessage: string | null = null; // Adiciona uma propriedade para a mensagem de sucesso
+  successMessage: string | null = null;
+  errorMessage: string | null = null; // Mensagem de erro
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private dbService: DbServiceService // Adiciona o serviço DbServiceService
   ) {}
 
   ngOnInit(): void {
@@ -39,14 +41,27 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    // Aqui você pode adicionar a lógica de autenticação
+    const email = this.loginForm.value.email;
+    const senha = this.loginForm.value.senha;
 
-    // Defina a mensagem de sucesso e depois redirecione
-    this.successMessage = 'Login realizado com sucesso!';
+    // Verifica o email e a senha com os dados no db.json
+    this.dbService.getColaboradores().subscribe(colaboradores => {
+      const colaborador = colaboradores.find(c => c.email === email && c.senha === senha);
 
-    setTimeout(() => {
-      this.redirecionarParaHome();
-    }, 1000); // Espera 1 segundo antes de redirecionar para mostrar a mensagem
+      if (colaborador) {
+        // Login bem-sucedido
+        this.successMessage = 'Login realizado com sucesso!';
+        this.errorMessage = null;
+
+        setTimeout(() => {
+          this.redirecionarParaHome();
+        }, 1000); // Espera 1 segundo antes de redirecionar para mostrar a mensagem
+      } else {
+        // Login falhou
+        this.successMessage = null;
+        this.errorMessage = 'Email ou senha incorretos. Tente novamente.';
+      }
+    });
   }
 
   redirecionarParaHome(): void {
