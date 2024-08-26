@@ -220,6 +220,15 @@
       "departamento": "TI",
       "cargo": "Engenheiro de Teste",
       "gestor": false
+    },
+    {
+      "id": "db59",
+      "nome": "teste3",
+      "email": "teste3@teste.com",
+      "senha": "1234",
+      "departamento": "TI",
+      "cargo": "Teste",
+      "gestor": false
     }
   ]
 }

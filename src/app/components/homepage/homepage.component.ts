@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { ListagemComercialComponent } from '../listagem-comercial/listagem-comercial.component';
-import { ListagemRHComponent } from '../listagem-rh/listagem-rh.component';
-import { ListagemTIComponent } from '../listagem-ti/listagem-ti.component';
 import { Colaborador } from '../../Models/colaborador';
 import { DbServiceService } from './../../services/db-service.service';
 import { CommonModule } from '@angular/common';
@@ -13,9 +10,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [
     RouterOutlet,
-    ListagemComercialComponent,
-    ListagemRHComponent,
-    ListagemTIComponent,
     CommonModule
   ],
   templateUrl: './homepage.component.html',

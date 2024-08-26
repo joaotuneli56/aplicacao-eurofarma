@@ -1,12 +1,16 @@
-/* src/styles.css */
-
-/* Defina a imagem de fundo para o corpo da aplicação */
 body {
   background-image: url('assets/background.png');
-  background-size: cover; /* Cobre toda a tela */
-  background-position: center; /* Centraliza a imagem */
-  background-repeat: no-repeat; /* Evita repetição da imagem */
-  background-attachment: fixed; /* Faz a imagem ficar fixa ao rolar a página */
-  margin: 0; /* Remove margem padrão do body */
-  height: 100vh; /* Garante que o body ocupe toda a altura da tela */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  height: 100vh;
+  padding-top: 56px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 70px;
+  }
 }
