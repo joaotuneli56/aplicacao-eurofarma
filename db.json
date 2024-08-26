@@ -195,6 +195,31 @@
       "senha": "2222",
       "departamento": "RH",
       "gestor": "true"
+    },
+    {
+      "id": "34a5",
+      "nome": "aaaa",
+      "email": "a@a.com",
+      "senha": "aaaa",
+      "departamento": "RH",
+      "gestor": "true"
+    },
+    {
+      "id": "1e5a",
+      "nome": "teste",
+      "email": "teste@teste.com",
+      "senha": "teste",
+      "departamento": "TI",
+      "gestor": false
+    },
+    {
+      "id": "c0d6",
+      "nome": "teste2",
+      "email": "teste2@teste.com",
+      "senha": "teste2",
+      "departamento": "TI",
+      "cargo": "Engenheiro de Teste",
+      "gestor": false
     }
   ]
 }
