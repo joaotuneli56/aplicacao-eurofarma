@@ -1,6 +1,5 @@
 <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
   <div class="logo mb-4">
-    <!-- Insira aqui o caminho para a sua logo -->
     <img src="assets/logo.png" alt="Logo" class="logo-img mb-4">
   </div>
   <div class="card p-4" style="width: 100%; max-width: 400px;">
@@ -44,12 +43,10 @@
       <button class="btn btn-link p-0" (click)="irParaCadastro()">Não tem uma conta? Cadastre-se</button>
     </div>
 
-    <!-- Mensagem de sucesso -->
     <div *ngIf="successMessage" class="alert alert-success mt-3" role="alert">
       {{ successMessage }}
     </div>
 
-    <!-- Mensagem de erro -->
     <div *ngIf="errorMessage" class="alert alert-danger mt-3" role="alert">
       {{ errorMessage }}
     </div>

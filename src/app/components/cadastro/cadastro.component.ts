@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css']  // Corrigido aqui
+  styleUrls: ['./cadastro.component.css']
 })
 export class CadastroComponent implements OnInit {
   cadastroForm!: FormGroup;
@@ -42,12 +42,12 @@ export class CadastroComponent implements OnInit {
     this.dbService.addColaborador(this.cadastroForm.value).subscribe(() => {
       this.successMessage = 'Cadastro realizado com sucesso!';
       setTimeout(() => {
-        this.irParaLogin(); // Redireciona para a tela de login após o cadastro
+        this.irParaLogin();
       }, 1000);
     });
   }
 
-  irParaLogin(): void { // Método para redirecionar para a página de login
+  irParaLogin(): void {
     this.router.navigate(['/login']);
   }
 }

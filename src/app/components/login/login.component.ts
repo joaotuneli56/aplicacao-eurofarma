@@ -15,12 +15,12 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   submitted = false;
   successMessage: string | null = null;
-  errorMessage: string | null = null; // Mensagem de erro
+  errorMessage: string | null = null;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private dbService: DbServiceService // Adiciona o serviço DbServiceService
+    private dbService: DbServiceService
   ) {}
 
   ngOnInit(): void {
@@ -44,20 +44,17 @@ export class LoginComponent implements OnInit {
     const email = this.loginForm.value.email;
     const senha = this.loginForm.value.senha;
 
-    // Verifica o email e a senha com os dados no db.json
     this.dbService.getColaboradores().subscribe(colaboradores => {
       const colaborador = colaboradores.find(c => c.email === email && c.senha === senha);
 
       if (colaborador) {
-        // Login bem-sucedido
         this.successMessage = 'Login realizado com sucesso!';
         this.errorMessage = null;
 
         setTimeout(() => {
           this.redirecionarParaHome();
-        }, 1000); // Espera 1 segundo antes de redirecionar para mostrar a mensagem
+        }, 1000);
       } else {
-        // Login falhou
         this.successMessage = null;
         this.errorMessage = 'Email ou senha incorretos. Tente novamente.';
       }

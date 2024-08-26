@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit {
   }
 
   logout(): void {
-    // Implementar a lógica de logout
     this.router.navigate(['/login']);
   }
 }

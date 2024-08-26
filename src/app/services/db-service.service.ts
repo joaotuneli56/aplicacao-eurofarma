@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Colaborador } from '../Models/colaborador'; // Interface já está sendo importada
+import { Colaborador } from '../Models/colaborador'; 
 
 @Injectable({
   providedIn: 'root'
