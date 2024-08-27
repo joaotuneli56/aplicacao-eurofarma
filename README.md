@@ -44,3 +44,70 @@ npm install -g json-server
 json-server --watch db.json --port 3000
 ```
 
+# Diagrama de Solução
+
+Agente: **Usuário**
+
+```mermaid
+---
+title: Diagrama de Solução
+---
+classDiagram
+    note "Estrutura de componentes do sistema"
+    
+    GestorArea <|-- AutenticarGestor
+    GestorArea <|-- EditarFuncionario
+    GestorArea <|-- RemoverFuncionario
+    GestorArea <|-- AdicionarFuncionario
+    GestorArea <|-- LogarGestor
+    
+    AprendizadoArea <|-- ListagemColaboradores
+    AprendizadoArea <|-- AutenticarColaborador
+    AprendizadoArea <|-- LogarAprendizado
+
+    class GestorArea {
+        +autenticarGestor()
+        +editarFuncionario()
+        +removerFuncionario()
+        +adicionarFuncionario()
+        +logarGestor()
+    }
+
+    class AutenticarGestor{
+        +validarCredenciais()
+    }
+
+    class EditarFuncionario{
+        +modificarDadosFuncionario()
+    }
+
+    class RemoverFuncionario{
+        +excluirFuncionario()
+    }
+
+    class AdicionarFuncionario{
+        +incluirFuncionario()
+    }
+
+    class LogarGestor{
+        +iniciarSessao()
+    }
+
+    class AprendizadoArea {
+        +listarColaboradores()
+        +autenticarColaborador()
+        +logarAprendizado()
+    }
+
+    class ListagemColaboradores{
+        +obterColaboradores()
+    }
+
+    class AutenticarColaborador{
+        +validarCredenciaisColaborador()
+    }
+
+    class LogarAprendizado{
+        +iniciarSessaoAprendizado()
+    }
+
