@@ -53,6 +53,7 @@ Agente: **Usuário**
 title: Diagrama de Solução
 ---
 classDiagram
+    direction TB
     note "Estrutura de componentes do sistema"
     
     GestorArea <|-- AutenticarGestor
