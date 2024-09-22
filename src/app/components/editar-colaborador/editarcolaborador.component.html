@@ -1,0 +1,32 @@
+<div class="form-container">
+  <h2>Editar Colaborador</h2>
+  <form [formGroup]="colaboradorForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome</label>
+      <input type="text" id="nome" formControlName="nome" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" id="email" formControlName="email" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label for="departamento" class="form-label">Departamento</label>
+      <input type="text" id="departamento" formControlName="departamento" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label for="cargo" class="form-label">Cargo</label>
+      <input type="text" id="cargo" formControlName="cargo" class="form-control" />
+    </div>
+
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="isGestor" formControlName="isGestor">
+      <label class="form-check-label" for="isGestor">É gestor?</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <button type="button" class="btn btn-danger" (click)="removerColaborador()">Remover</button>
+  </form>
+</div>

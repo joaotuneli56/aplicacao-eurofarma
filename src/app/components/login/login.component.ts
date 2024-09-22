@@ -3,6 +3,7 @@ import { DbServiceService } from './../../services/db-service.service';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Colaborador } from '../../Models/colaborador';
 
 @Component({
   selector: 'app-login',
@@ -34,6 +35,14 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
+  redirecionarParaHome(colaborador: Colaborador): void {
+    if (colaborador.gestor == true) {
+      this.router.navigate(['/home-gestor']);
+    } else {
+      this.router.navigate(['/home-colaborador']);
+    }
+  }
+
   onSubmit(): void {
     this.submitted = true;
 
@@ -52,17 +61,13 @@ export class LoginComponent implements OnInit {
         this.errorMessage = null;
 
         setTimeout(() => {
-          this.redirecionarParaHome();
+          this.redirecionarParaHome(colaborador); // Passar o colaborador aqui
         }, 1000);
       } else {
         this.successMessage = null;
         this.errorMessage = 'Email ou senha incorretos. Tente novamente.';
       }
     });
-  }
-
-  redirecionarParaHome(): void {
-    this.router.navigate(['/home']);
   }
 
   irParaCadastro(): void {

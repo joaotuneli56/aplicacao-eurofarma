@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { Colaborador } from '../../Models/colaborador';
-import { DbServiceService } from './../../services/db-service.service';
+import { DbServiceService } from '../../services/db-service.service';
 import { CommonModule } from '@angular/common';
 
-
 @Component({
-  selector: 'app-homepage',
+  selector: 'app-listacolaboradoresfun',
   standalone: true,
   imports: [
     RouterOutlet,
     CommonModule
   ],
-  templateUrl: './homepage.component.html',
-  styleUrl: './homepage.component.css'
+  templateUrl: './listacolaboradoresfun.component.html',
+  styleUrl: './listacolaboradoresfun.component.css'
 })
-export class HomeComponent implements OnInit {
+export class ListaColaboradoresFunComponent implements OnInit {
   colaboradores: any[] = [];
 
   constructor(private dbService: DbServiceService, private router: Router) {}
