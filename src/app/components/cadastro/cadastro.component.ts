@@ -38,6 +38,11 @@ export class CadastroComponent implements OnInit {
     if (this.cadastroForm.invalid) {
       return;
     }
+    
+    const colaborador: Colaborador = {
+      ...this.cadastroForm.value,
+      id: this.cadastroForm.value.id || 0 // Garante que o ID seja numérico
+    };
 
     this.dbService.addColaborador(this.cadastroForm.value).subscribe(() => {
       this.successMessage = 'Cadastro realizado com sucesso!';

@@ -1,15 +1,6 @@
 {
   "colaboradores": [
     {
-      "id": "1",
-      "nome": "Ana Souza",
-      "email": "ana.souza@empresa.com",
-      "senha": "senha123",
-      "departamento": "Recursos Humanos",
-      "cargo": "Analista de RH",
-      "gestor": false
-    },
-    {
       "id": "2",
       "nome": "Carlos Pereira",
       "email": "carlos.pereira@empresa.com",
@@ -46,13 +37,12 @@
       "gestor": false
     },
     {
-      "id": "6",
       "nome": "Luiz Ferreira",
-      "email": "luiz.ferreira@empresa.com",
-      "senha": "senha987",
+      "email": "luiz.ferreira1@empresa.com",
       "departamento": "Tecnologia da Informação",
       "cargo": "Analista de Suporte",
-      "gestor": false
+      "gestor": false,
+      "id": "6"
     },
     {
       "id": "7",
@@ -189,46 +179,44 @@
       "gestor": "true"
     },
     {
-      "id": "ab5a",
-      "nome": "João Pedro",
-      "email": "joaotunelipedromoura@gmail.com",
-      "senha": "2222",
-      "departamento": "RH",
-      "gestor": "true"
-    },
-    {
-      "id": "34a5",
-      "nome": "aaaa",
-      "email": "a@a.com",
-      "senha": "aaaa",
-      "departamento": "RH",
-      "gestor": "true"
-    },
-    {
-      "id": "1e5a",
-      "nome": "teste",
-      "email": "teste@teste.com",
-      "senha": "teste",
-      "departamento": "TI",
+      "id": "4081",
+      "nome": "Oba",
+      "email": "Oba@oba.com",
+      "senha": "123",
+      "departamento": "Oba",
+      "cargo": "Oba",
       "gestor": false
     },
     {
-      "id": "c0d6",
-      "nome": "teste2",
-      "email": "teste2@teste.com",
-      "senha": "teste2",
-      "departamento": "TI",
-      "cargo": "Engenheiro de Teste",
-      "gestor": false
+      "id": "e1ff",
+      "nome": "teste1",
+      "email": "t@t.com",
+      "senha": "t",
+      "departamento": "t",
+      "cargo": "t",
+      "gestor": true
+    }
+  ],
+  "cursos": [
+    {
+      "id": 2067,
+      "nome": "Introdução as Normas da empresa",
+      "descricao": "curso introdutorio para as normas e costumes da empresa.",
+      "colaboradoresAtribuidos": [
+        "4"
+      ]
     },
     {
-      "id": "db59",
-      "nome": "teste3",
-      "email": "teste3@teste.com",
-      "senha": "1234",
-      "departamento": "TI",
-      "cargo": "Teste",
-      "gestor": false
+      "id": "40b4",
+      "cursoNome": "Curso da xereca",
+      "descricao": "como comer xereca",
+      "colaboradores": []
+    },
+    {
+      "id": "8911",
+      "cursoNome": "Curso da xereca 2",
+      "descricao": "como comer xereca 2 vezes",
+      "colaboradores": []
     }
   ]
 }
