@@ -4,7 +4,6 @@ import { Colaborador } from '../../Models/colaborador';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-cadastro',
@@ -16,6 +15,7 @@ import { HttpClient } from '@angular/common/http';
 export class CadastroComponent implements OnInit {
   cadastroForm!: FormGroup;
   successMessage: string | null = null;
+  departamentos: string[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,6 +32,15 @@ export class CadastroComponent implements OnInit {
       cargo: ['', Validators.required],
       gestor: [false]
     });
+
+    this.dbService.getDepartamentos().subscribe(
+      departamentos => {
+        this.departamentos = departamentos;
+      },
+      error => {
+        console.error('Erro ao carregar departamentos:', error);
+      }
+    );
   }
 
   onSubmit(): void {
@@ -41,16 +50,20 @@ export class CadastroComponent implements OnInit {
 
     const colaborador: Colaborador = {
       ...this.cadastroForm.value,
-      id: this.cadastroForm.value.id || 0
+      id: this.cadastroForm.value.id || this.generateUniqueId()
     };
 
-    this.dbService.addColaborador(colaborador).subscribe(() => {
-      this.successMessage = 'Cadastro realizado com sucesso!';
-      setTimeout(() => {
-        this.resetForm();
-        this.successMessage = null;
-      }, 1000);
-    });
+    this.dbService.addColaborador(colaborador).subscribe(
+      () => {
+        this.successMessage = 'Cadastro realizado com sucesso! Redirecionando para login...';
+        setTimeout(() => {
+          this.irParaLogin();
+        }, 1500); // 1.5 segundos de delay para a mensagem ser exibida
+      },
+      error => {
+        console.error('Erro ao cadastrar colaborador:', error);
+      }
+    );
   }
 
   resetForm(): void {
@@ -67,5 +80,10 @@ export class CadastroComponent implements OnInit {
   // Método opcional para redirecionar ao login
   irParaLogin(): void {
     this.router.navigate(['/login']);
+  }
+
+  // Método para gerar um ID único
+  private generateUniqueId(): number {
+    return Math.floor(Math.random() * 10000); // Exemplo simples
   }
 }

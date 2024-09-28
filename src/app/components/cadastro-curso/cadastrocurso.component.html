@@ -1,45 +1,43 @@
-
 <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+  <div class="card p-4 shadow" style="width: 100%; max-width: 600px; border-radius: 15px;">
+    <h2 class="text-center mb-4" style="color: #0D4B8A;">Cadastro de Curso</h2>
 
-<div class="card p-4" style="width: 100%; max-width: 600px;">
-  <h2 class="text-center mb-4">Cadastro de Curso</h2>
-  <form [formGroup]="cadastroCursoForm" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-      <label for="cursoNome" class="form-label">Nome do Curso</label>
-      <input type="text" id="cursoNome" formControlName="cursoNome" class="form-control" />
-    </div>
-    <div class="mb-3">
-      <label for="descricao" class="form-label">Descrição</label>
-      <textarea id="descricao" formControlName="descricao" class="form-control"></textarea>
-    </div>
-
-    <h5>Colaboradores</h5>
-    <div class="mb-3">
-      <div *ngFor="let colaborador of colaboradores">
-        <div class="form-check">
-          <input
-            type="checkbox"
-            class="form-check-input"
-            [value]="colaborador.id"
-            (change)="onCheckboxChange($event)"
-            id="{{colaborador.id}}"
-          />
-          <label class="form-check-label" for="{{colaborador.id}}">{{ colaborador.nome }}</label>
-        </div>
+    <form [formGroup]="cadastroCursoForm" (ngSubmit)="onSubmit()">
+      <!-- Nome do Curso -->
+      <div class="mb-3">
+        <label for="cursoNome" class="form-label">Nome do Curso</label>
+        <input type="text" id="cursoNome" formControlName="cursoNome" class="form-control form-control-lg" placeholder="Digite o nome do curso" />
       </div>
-    </div>
 
-    <div class="d-grid gap-2">
-      <button type="submit" class="btn btn-primary">Cadastrar Curso</button>
-    </div>
+      <!-- Descrição -->
+      <div class="mb-3">
+        <label for="descricao" class="form-label">Descrição</label>
+        <textarea id="descricao" formControlName="descricao" class="form-control form-control-lg" rows="3" placeholder="Digite a descrição do curso"></textarea>
+      </div>
 
-    <div *ngIf="successMessage" class="alert alert-success mt-3" role="alert">
-      {{ successMessage }}
-    </div>
+      <!-- Atribuir Colaboradores com Dropdown -->
+      <h5 class="mt-4">Atribuir Colaboradores ao Curso</h5>
+      <div class="mb-3">
+        <label for="colaboradoresSelect" class="form-label">Selecionar Colaboradores</label>
+        <select id="colaboradoresSelect" class="form-select" multiple formControlName="colaboradores">
+          <option *ngFor="let colaborador of colaboradores" [value]="colaborador.id">{{ colaborador.nome }}</option>
+        </select>
+      </div>
 
-    <div class="text-center mt-3">
-      <button class="btn btn-link p-0" (click)="voltarParaHome()">Voltar para Home</button>
-    </div>
-  </form>
-</div>
+      <!-- Botão de Cadastro -->
+      <div class="d-grid gap-2 mt-4">
+        <button type="submit" class="btn btn-primary btn-lg" style="background-color: #0D4B8A;">Cadastrar Curso</button>
+      </div>
+
+      <!-- Mensagem de Sucesso -->
+      <div *ngIf="successMessage" class="alert alert-success mt-3 text-center" role="alert">
+        {{ successMessage }}
+      </div>
+
+      <!-- Voltar para Home -->
+      <div class="text-center mt-3">
+        <button class="btn btn-link p-0" (click)="voltarParaHome()">Voltar para Home</button>
+      </div>
+    </form>
+  </div>
 </div>

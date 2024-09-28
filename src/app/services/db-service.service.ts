@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Colaborador } from '../Models/colaborador';
 import { Curso } from '../Models/curso';
 
@@ -49,5 +49,19 @@ export class DbServiceService {
   deleteColaborador(id: number): Observable<void> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.delete<void>(url);
+  }
+
+  getDepartamentos(): Observable<string[]> {
+    return this.getColaboradores().pipe(
+      map(colaboradores => {
+        const departamentosSet = new Set<string>();
+        colaboradores.forEach(colab => {
+          if (colab.departamento) {
+            departamentosSet.add(colab.departamento);
+          }
+        });
+        return Array.from(departamentosSet);
+      })
+    );
   }
 }

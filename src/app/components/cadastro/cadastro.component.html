@@ -1,3 +1,5 @@
+<!-- src/app/components/cadastro/cadastro.component.html -->
+
 <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
   <div class="logo mb-4">
     <img src="assets/logo.png" alt="Logo" class="logo-img mb-4">
@@ -23,7 +25,10 @@
         </div>
         <div class="col-md-6 mb-3">
           <label for="departamento" class="form-label">Departamento</label>
-          <input type="text" id="departamento" formControlName="departamento" class="form-control" />
+          <select id="departamento" formControlName="departamento" class="form-control">
+            <option value="" disabled selected>Selecione o departamento</option>
+            <option *ngFor="let dept of departamentos" [value]="dept">{{ dept }}</option>
+          </select>
         </div>
       </div>
 
