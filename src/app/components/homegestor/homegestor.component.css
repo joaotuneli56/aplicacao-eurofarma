@@ -1,9 +1,61 @@
-.container {
-  max-width: 1200px;
-  margin: auto;
+body {
+  background-color: #f8f9fa; /* Cor de fundo leve */
+  font-family: 'Arial', sans-serif; /* Fonte mais agradável */
 }
 
-.navbar-brand {
-  font-size: 1.5rem;
-  font-weight: bold;
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra sutil na navbar */
+}
+
+.progress-circle {
+  width: 150px; /* Aumente o tamanho da barra de progresso circular */
+  height: 150px; /* Aumente o tamanho da barra de progresso circular */
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto; /* Centraliza horizontalmente */
+  background: conic-gradient(
+    #28a745 var(--progress), /* Cor para o progresso (ativos) */
+    #e9ecef var(--progress) /* Cor para a parte não preenchida (inativos) */
+  );
+  font-size: 1.5em; /* Aumenta o tamanho do texto dentro da barra */
+  color: #000; /* Cor do texto */
+}
+
+.progress-value {
+  position: absolute;
+  font-size: 1.5em; /* Aumenta o tamanho do texto do número */
+  font-weight: bold; /* Estilo do texto */
+  color: #000; /* Cor do texto */
+  text-align: center; /* Centraliza o texto */
+}
+
+.modal-content {
+  border-radius: 10px; /* Bordas arredondadas para o modal */
+}
+
+.modal-header {
+  background-color: #0D4B8A; /* Cor do cabeçalho do modal */
+  color: white; /* Cor do texto do cabeçalho */
+}
+
+h3, h4 {
+  color: #0D4B8A; /* Cor dos títulos */
+  text-align: center; /* Centraliza os títulos */
+}
+
+ul.list-unstyled {
+  padding: 0; /* Remove padding padrão da lista */
+}
+
+.badge {
+  background-color: #0D4B8A; /* Cor do badge */
+  color: white; /* Texto branco no badge */
+}
+
+.container {
+  text-align: center; /* Centraliza o conteúdo do container */
+  margin-top: 20px; /* Adiciona um espaço acima do container */
 }
