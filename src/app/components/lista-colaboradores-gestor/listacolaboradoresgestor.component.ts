@@ -3,13 +3,15 @@ import { Router, RouterOutlet } from '@angular/router';
 import { Colaborador } from '../../Models/colaborador';
 import { DbServiceService } from '../../services/db-service.service';
 import { CommonModule } from '@angular/common';
+import { CadastroComponent } from '../cadastro/cadastro.component';
 
 @Component({
   selector: 'app-listacolaboradoresgestor',
   standalone: true,
   imports: [
     RouterOutlet,
-    CommonModule
+    CommonModule,
+    CadastroComponent
   ],
   templateUrl: './listacolaboradoresgestor.component.html',
   styleUrl: './listacolaboradoresgestor.component.css'
@@ -17,6 +19,7 @@ import { CommonModule } from '@angular/common';
 
 export class ListaColaboradoresGestorComponent implements OnInit {
   colaboradores: any[] = [];
+  departamentoGestor: string | null = null;
 
   constructor(private dbService: DbServiceService, private router: Router) {}
 
@@ -40,5 +43,15 @@ export class ListaColaboradoresGestorComponent implements OnInit {
 
   logout(): void {
     this.router.navigate(['/login']);
+  }
+    onColaboradorAdicionado(): void {
+    this.atualizarColaboradores();
+  }
+
+  atualizarColaboradores(): void {
+     this.dbService.getColaboradores().subscribe(data => {
+       // Filtra os colaboradores com base no departamento do gestor
+       this.colaboradores = data.filter(colaborador => colaborador.departamento === this.departamentoGestor);
+     });
   }
 }

@@ -38,20 +38,33 @@ export class CadastroComponent implements OnInit {
     if (this.cadastroForm.invalid) {
       return;
     }
-    
+
     const colaborador: Colaborador = {
       ...this.cadastroForm.value,
-      id: this.cadastroForm.value.id || 0 // Garante que o ID seja numérico
+      id: this.cadastroForm.value.id || 0
     };
 
-    this.dbService.addColaborador(this.cadastroForm.value).subscribe(() => {
+    this.dbService.addColaborador(colaborador).subscribe(() => {
       this.successMessage = 'Cadastro realizado com sucesso!';
       setTimeout(() => {
-        this.irParaLogin();
+        this.resetForm();
+        this.successMessage = null;
       }, 1000);
     });
   }
 
+  resetForm(): void {
+    this.cadastroForm.reset({
+      nome: '',
+      email: '',
+      senha: '',
+      departamento: '',
+      cargo: '',
+      gestor: false
+    });
+  }
+
+  // Método opcional para redirecionar ao login
   irParaLogin(): void {
     this.router.navigate(['/login']);
   }

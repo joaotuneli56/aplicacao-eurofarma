@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth-service.service';
 import { Router } from '@angular/router';
 import { DbServiceService } from './../../services/db-service.service';
 import { Component, OnInit } from '@angular/core';
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private dbService: DbServiceService
+    private dbService: DbServiceService,
+    private AuthService: AuthService // Injeção do AuthService
   ) {}
 
   ngOnInit(): void {
@@ -36,7 +38,7 @@ export class LoginComponent implements OnInit {
   }
 
   redirecionarParaHome(colaborador: Colaborador): void {
-    if (colaborador.gestor == true) {
+    if (colaborador.gestor) {
       this.router.navigate(['/home-gestor']);
     } else {
       this.router.navigate(['/home-colaborador']);
@@ -57,11 +59,12 @@ export class LoginComponent implements OnInit {
       const colaborador = colaboradores.find(c => c.email === email && c.senha === senha);
 
       if (colaborador) {
+        this.AuthService.setCurrentUser(colaborador); // Armazena o usuário logado
         this.successMessage = 'Login realizado com sucesso!';
         this.errorMessage = null;
 
         setTimeout(() => {
-          this.redirecionarParaHome(colaborador); // Passar o colaborador aqui
+          this.redirecionarParaHome(colaborador);
         }, 1000);
       } else {
         this.successMessage = null;

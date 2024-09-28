@@ -2,8 +2,7 @@
   <a class="navbar-brand text-white ms-2" href="home-gestor">Onboarding App</a>
   <div class="ms-auto d-flex align-items-center">
     <a class="btn btn-primary text-white me-2" href="home-gestor">HOME</a>
-    <a class="btn btn-warning text-white me-2" href="cadastro-curso">CADASTRAR CURSO</a>
-    <button class="btn btn-warning me-2">ÁREA DE APRENDIZADO</button>
+    <a class="btn btn-warning me-2" href="cadastro-curso">CADASTRAR CURSO</a>
     <button class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#logoutModal">
       LOGOUT
     </button>
@@ -44,6 +43,27 @@
               </tr>
             </tbody>
           </table>
+          <button type="button" class="btn btn-success d-flex justify-content-end mb-3" data-bs-toggle="modal" data-bs-target="#cadastroColaboradorModal">
+            Cadastrar Colaborador
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Cadastro de Colaborador -->
+  <div class="modal fade" id="cadastroColaboradorModal" tabindex="-1" aria-labelledby="cadastroColaboradorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cadastroColaboradorModalLabel">Cadastrar Colaborador</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-cadastro (colaboradorAdicionado)="onColaboradorAdicionado()"></app-cadastro>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
         </div>
       </div>
     </div>
