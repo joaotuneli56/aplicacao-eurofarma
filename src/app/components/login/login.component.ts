@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     if (colaborador.gestor) {
       this.router.navigate(['/home-gestor']);
     } else {
-      this.router.navigate(['/home-colaborador']);
+      this.router.navigate(['/lista-colaboradores-fun']);
     }
   }
 

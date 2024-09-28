@@ -22,12 +22,12 @@ export class AreaAprendizadoComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getCursos();
+    this.getCursosAtribuidos();
   }
 
-  getCursos(): void {
-    this.dbService.getCursos().subscribe(data => {
-      this.cursos = data;
+  getCursosAtribuidos(): void {
+    this.dbService.getCursosAtribuidos().subscribe(data => {
+      this.cursos = data;  // Somente os cursos atribuídos serão retornados
     });
   }
 

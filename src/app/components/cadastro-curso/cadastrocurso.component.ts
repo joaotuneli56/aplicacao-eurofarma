@@ -46,11 +46,10 @@ export class CadastroCursoComponent implements OnInit {
       return;
     }
 
-    // Montando o objeto do curso para envio
     const curso: Curso = {
       nome: this.cadastroCursoForm.value.cursoNome,
       descricao: this.cadastroCursoForm.value.descricao,
-      colaboradoresAtribuidos: this.cadastroCursoForm.value.colaboradores, // IDs dos colaboradores selecionados
+      colaboradoresAtribuidos: this.cadastroCursoForm.value.colaboradores,
       id: this.cadastroCursoForm.value.id || this.generateUniqueId()
     };
 
@@ -61,6 +60,7 @@ export class CadastroCursoComponent implements OnInit {
       }, 1000);
     });
   }
+  
   private generateUniqueId(): number {
     return Math.floor(Math.random() * 10000); // Exemplo simples
   }
