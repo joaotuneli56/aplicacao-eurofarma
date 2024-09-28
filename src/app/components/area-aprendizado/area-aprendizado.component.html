@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #0D4B8A;">
+  <a class="navbar-brand text-white ms-2" href="home-colaborador">Onboarding App</a>
+  <div class="ms-auto d-flex align-items-center">
+    <a class="btn btn-success text-white me-2" href="lista-colaboradores-fun">LISTA DE COLABORADORES</a>
+    <button class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#logoutModal">
+      LOGOUT
+    </button>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <h2 class="text-center mb-4" style="color: #0D4B8A;">Área de Aprendizado</h2>
+
+  <div *ngIf="cursos.length === 0" class="alert alert-info text-center">
+    Nenhum curso atribuído no momento.
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4 col-lg-3 mb-4" *ngFor="let curso of cursos">
+      <div class="card shadow-sm h-100">
+        <!-- Imagem do curso -->
+        <img
+          src="https://via.placeholder.com/300x200.png?text=Imagem+do+Curso"
+          class="card-img-top"
+          alt="{{ curso.nome }}"
+          style="object-fit: cover; height: 180px;"
+        />
+        <div class="card-body d-flex flex-column">
+          <!-- Nome do curso -->
+          <h5 class="card-title text-center mb-2" style="color: #0D4B8A;">{{ curso.nome }}</h5>
+          <!-- Descrição do curso -->
+          <p class="card-text text-muted text-center flex-grow-1">{{ curso.descricao }}</p>
+          <!-- Botão para abrir modal de detalhes do curso -->
+          <button class="btn btn-primary mt-3 align-self-center" (click)="abrirModal(curso)">
+            Acessar Curso
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Detalhes do Curso -->
+  <div class="modal" tabindex="-1" [ngClass]="{ 'show': modalAberto }" [ngStyle]="{ display: modalAberto ? 'block' : 'none' }">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ cursoSelecionado?.nome }}</h5>
+          <button type="button" class="btn-close" aria-label="Close" (click)="fecharModal()"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img
+            src="https://via.placeholder.com/600x300.png?text=Imagem+do+Curso"
+            class="img-fluid mb-3"
+            alt="{{ cursoSelecionado?.nome }}"
+            style="object-fit: cover; max-height: 300px;"
+          />
+          <p class="text-muted">{{ cursoSelecionado?.descricao }}</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button class="btn btn-primary" (click)="visualizarMaterial()">Acessar Material</button>
+          <button type="button" class="btn btn-secondary" (click)="fecharModal()">Voltar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

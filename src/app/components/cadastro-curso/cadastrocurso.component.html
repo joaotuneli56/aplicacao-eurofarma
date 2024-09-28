@@ -17,12 +17,12 @@
 
       <!-- Atribuir Colaboradores com Dropdown -->
       <h5 class="mt-4">Atribuir Colaboradores ao Curso</h5>
-      <div class="mb-3">
-        <label for="colaboradoresSelect" class="form-label">Selecionar Colaboradores</label>
-        <select id="colaboradoresSelect" class="form-select" multiple formControlName="colaboradores">
-          <option *ngFor="let colaborador of colaboradores" [value]="colaborador.id">{{ colaborador.nome }}</option>
-        </select>
-      </div>
+        <div class="mb-3">
+          <label for="colaboradoresSelect" class="form-label">Selecionar Colaboradores</label>
+          <select id="colaboradoresSelect" class="form-select" multiple formControlName="colaboradores">
+            <option *ngFor="let colaborador of colaboradores" [value]="colaborador.id">{{ colaborador.nome }}</option>
+          </select>
+        </div>
 
       <!-- Botão de Cadastro -->
       <div class="d-grid gap-2 mt-4">

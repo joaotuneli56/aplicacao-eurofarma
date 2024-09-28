@@ -1,3 +1,4 @@
+
 {
   "colaboradores": [
     {
@@ -6,7 +7,10 @@
       "departamento": "Comercial",
       "cargo": "Vendedor",
       "gestor": false,
-      "id": "3"
+      "id": "3",
+      "cursosAtribuidos": [
+        1
+      ]
     },
     {
       "id": "4",
@@ -32,7 +36,10 @@
       "departamento": "Tecnologia da Informação",
       "cargo": "Analista de Suporte",
       "gestor": false,
-      "id": "6"
+      "id": "6",
+      "cursosAtribuidos": [
+        0
+      ]
     },
     {
       "id": "7",
@@ -41,7 +48,22 @@
       "senha": "senha741",
       "departamento": "Comercial",
       "cargo": "Assistente Comercial",
-      "gestor": false
+      "gestor": false,
+      "cursosAtribuidos": [
+        0
+      ]
+    },
+    {
+      "id": "8",
+      "nome": "Rodrigo Batista",
+      "email": "rodrigo.batista@empresa.com",
+      "senha": "senha852",
+      "departamento": "Recursos Humanos",
+      "cargo": "Coordenador de RH",
+      "gestor": true,
+      "cursosAtribuidos": [
+        0
+      ]
     },
     {
       "id": "9",
@@ -50,7 +72,10 @@
       "senha": "senha963",
       "departamento": "Tecnologia da Informação",
       "cargo": "Desenvolvedor Full-Stack",
-      "gestor": false
+      "gestor": false,
+      "cursosAtribuidos": [
+        0
+      ]
     },
     {
       "id": "10",
@@ -59,7 +84,10 @@
       "senha": "senha159",
       "departamento": "Recursos Humanos",
       "cargo": "Assistente de RH",
-      "gestor": false
+      "gestor": false,
+      "cursosAtribuidos": [
+        0
+      ]
     },
     {
       "id": "11",
@@ -68,7 +96,10 @@
       "senha": "senha753",
       "departamento": "Comercial",
       "cargo": "Vendedora",
-      "gestor": false
+      "gestor": false,
+      "cursosAtribuidos": [
+        0
+      ]
     },
     {
       "id": "12",
@@ -77,7 +108,21 @@
       "senha": "senha951",
       "departamento": "Tecnologia da Informação",
       "cargo": "Desenvolvedor Front-End",
-      "gestor": false
+      "gestor": false,
+      "cursosAtribuidos": [
+        0
+      ]
+    },
+    {
+      "nome": "Sofia Mendes",
+      "email": "sofia.mendes@empresa.com",
+      "departamento": "Recursos Humanos",
+      "cargo": "Analista de Benefícios",
+      "gestor": false,
+      "id": "13",
+      "cursosAtribuidos": [
+        0
+      ]
     },
     {
       "id": "14",
@@ -86,7 +131,10 @@
       "senha": "senha741",
       "departamento": "Comercial",
       "cargo": "Analista Comercial",
-      "gestor": false
+      "gestor": false,
+      "cursosAtribuidos": [
+        0
+      ]
     },
     {
       "id": "15",
@@ -95,7 +143,10 @@
       "senha": "senha258",
       "departamento": "Tecnologia da Informação",
       "cargo": "Arquiteta de Soluções",
-      "gestor": false
+      "gestor": false,
+      "cursosAtribuidos": [
+        0
+      ]
     },
     {
       "id": "16",
@@ -104,7 +155,10 @@
       "senha": "senha963",
       "departamento": "Comercial",
       "cargo": "Representante Comercial",
-      "gestor": false
+      "gestor": false,
+      "cursosAtribuidos": [
+        0
+      ]
     },
     {
       "nome": "Clara Nunes",
@@ -112,7 +166,23 @@
       "departamento": "Recursos Humanos",
       "cargo": "Analista de Treinamento",
       "gestor": false,
-      "id": "17"
+      "id": "17",
+      "cursosAtribuidos": [
+        0
+      ]
+    },
+    {
+      "id": "18",
+      "nome": "Leandro Martins",
+      "email": "leandro.martins@empresa.com",
+      "senha": "senha357",
+      "departamento": "Tecnologia da Informação",
+      "cargo": "Desenvolvedor Back-End",
+      "gestor": false,
+      "cursosAtribuidos": [
+        0,
+        3760
+      ]
     },
     {
       "id": "19",
@@ -121,7 +191,11 @@
       "senha": "senha258",
       "departamento": "Comercial",
       "cargo": "Assistente de Vendas",
-      "gestor": false
+      "gestor": false,
+      "cursosAtribuidos": [
+        0,
+        3760
+      ]
     },
     {
       "id": "20",
@@ -130,7 +204,11 @@
       "senha": "senha753",
       "departamento": "Recursos Humanos",
       "cargo": "Especialista em Recrutamento",
-      "gestor": false
+      "gestor": false,
+      "cursosAtribuidos": [
+        0,
+        3760
+      ]
     },
     {
       "id": "21",
@@ -139,7 +217,11 @@
       "senha": "senha123",
       "departamento": "Marketing",
       "cargo": "Gerente de Marketing",
-      "gestor": true
+      "gestor": true,
+      "cursosAtribuidos": [
+        0,
+        3760
+      ]
     },
     {
       "id": "22",
@@ -148,7 +230,11 @@
       "senha": "senha456",
       "departamento": "Financeiro",
       "cargo": "Coordenador Financeiro",
-      "gestor": true
+      "gestor": true,
+      "cursosAtribuidos": [
+        0,
+        3760
+      ]
     },
     {
       "id": "24",
@@ -157,7 +243,11 @@
       "senha": "senha101",
       "departamento": "Marketing",
       "cargo": "Analista de Marketing",
-      "gestor": false
+      "gestor": false,
+      "cursosAtribuidos": [
+        0,
+        3760
+      ]
     },
     {
       "id": "25",
@@ -166,43 +256,74 @@
       "senha": "senha202",
       "departamento": "Financeiro",
       "cargo": "Analista Financeiro",
-      "gestor": false
+      "gestor": false,
+      "cursosAtribuidos": [
+        0,
+        3760
+      ]
     },
     {
-      "id": "9177",
+      "id": "0",
       "nome": "João Pedro",
-      "email": "joao.tunli@gmail.com",
+      "email": "joao.pedro@email.com",
+      "senha": "senha123",
+      "departamento": "Tecnologia da Informação",
+      "cargo": "Engenheiro DevOps",
+      "gestor": false,
+      "cursosAtribuidos": [
+        0,
+        0,
+        3760
+      ]
+    },
+    {
+      "id": "7263",
+      "nome": "Usuario teste",
+      "email": "teste@teste.com.br",
+      "senha": "teste",
+      "departamento": "Financeiro",
+      "cargo": "tester",
+      "gestor": true,
+      "cursosAtribuidos": [
+        0,
+        0,
+        3760
+      ]
+    },
+    {
+      "id": "3106",
+      "nome": "teste",
+      "email": "teste@teste.com.br",
+      "senha": "teste",
+      "departamento": "Comercial",
+      "cargo": "testador",
+      "gestor": false,
+      "cursosAtribuidos": [
+        0,
+        3760
+      ]
+    },
+    {
+      "id": "1076",
+      "nome": "Claudio Costa",
+      "email": "claudio.costa@gmail.com",
+      "senha": "senha123",
+      "departamento": "Marketing",
+      "cargo": "Analista de Resoluções",
+      "gestor": false,
+      "cursosAtribuidos": [
+        0,
+        3760
+      ]
+    },
+    {
+      "id": 8200,
+      "nome": "baron",
+      "email": "baron@baron.com",
       "senha": "1234",
-      "departamento": "Comercial",
-      "cargo": "Dev Senior",
-      "gestor": false
-    },
-    {
-      "id": 6300,
-      "nome": "João Pedro",
-      "email": "joaotunelipedromoura@gmail.com",
-      "senha": "WWWW",
-      "departamento": "Comercial",
-      "cargo": "desenvolvedor",
-      "gestor": false
-    },
-    {
-      "id": 8072,
-      "nome": "João Pedro",
-      "email": "joao@joao.com",
-      "senha": "123",
-      "departamento": "Comercial",
-      "cargo": "sla",
-      "gestor": false
-    },
-    {
-      "id": 5666,
-      "nome": "usuario1",
-      "email": "email@email.com",
-      "senha": "123",
-      "departamento": "Recursos Humanos",
-      "cargo": "Analista de RH",
-      "gestor": false
+      "departamento": "Financeiro",
+      "cargo": "testeteste",
+      "gestor": true
     }
   ],
   "cursos": [
@@ -213,6 +334,61 @@
       "colaboradoresAtribuidos": [
         "4"
       ]
+    },
+    {
+      "id": "21",
+      "nome": "ffff",
+      "descricao": "fff",
+      "colaboradoresAtribuidos": [
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "24",
+        "25",
+        "0",
+        "7263"
+      ]
+    },
+    {
+      "id": 1,
+      "nome": "adsadas",
+      "descricao": "dasdas",
+      "colaboradoresAtribuidos": [
+        "3"
+      ]
+    },
+    {
+      "id": 3760,
+      "nome": "Curso da xereca 2",
+      "descricao": "dasdas",
+      "colaboradoresAtribuidos": [
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "24",
+        "25",
+        "0",
+        "7263",
+        "3106",
+        "1076"
+      ]
     }
   ]
 }
+

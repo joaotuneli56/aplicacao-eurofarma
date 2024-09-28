@@ -28,10 +28,9 @@ export class CadastroCursoComponent implements OnInit {
     this.cadastroCursoForm = this.formBuilder.group({
       cursoNome: ['', Validators.required],
       descricao: ['', Validators.required],
-      colaboradores: [[]] // Inicializa com um array vazio
+      colaboradores: [[]] // Inicializa com um array vazio para múltiplos IDs de colaboradores
     });
 
-    // Chame um método para obter a lista de colaboradores
     this.getColaboradores();
   }
 
@@ -41,32 +40,29 @@ export class CadastroCursoComponent implements OnInit {
     });
   }
 
-  onCheckboxChange(event: any): void {
-    const formArray: FormArray = this.cadastroCursoForm.get('colaboradores') as FormArray;
-
-    if (event.target.checked) {
-      formArray.push(new FormControl(event.target.value));
-    } else {
-      const index = formArray.controls.findIndex(x => x.value === event.target.value);
-      formArray.removeAt(index);
-    }
-  }
 
   onSubmit(): void {
     if (this.cadastroCursoForm.invalid) {
       return;
     }
-    const cursos: Curso = {
-      ...this.cadastroCursoForm.value,
-      id: this.cadastroCursoForm.value.id || 0 // Garante que o ID seja numérico
+
+    // Montando o objeto do curso para envio
+    const curso: Curso = {
+      nome: this.cadastroCursoForm.value.cursoNome,
+      descricao: this.cadastroCursoForm.value.descricao,
+      colaboradoresAtribuidos: this.cadastroCursoForm.value.colaboradores, // IDs dos colaboradores selecionados
+      id: this.cadastroCursoForm.value.id || this.generateUniqueId()
     };
 
-    this.dbService.addCurso(this.cadastroCursoForm.value).subscribe(() => {
+    this.dbService.addCurso(curso).subscribe(() => {
       this.successMessage = 'Curso cadastrado com sucesso!';
       setTimeout(() => {
         this.voltarParaHome();
       }, 1000);
     });
+  }
+  private generateUniqueId(): number {
+    return Math.floor(Math.random() * 10000); // Exemplo simples
   }
 
   voltarParaHome(): void {
