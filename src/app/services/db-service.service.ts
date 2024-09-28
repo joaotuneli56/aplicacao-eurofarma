@@ -1,6 +1,7 @@
+import { AuthService } from './auth-service.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
 import { Colaborador } from '../Models/colaborador';
 import { Curso } from '../Models/curso';
 
@@ -12,14 +13,28 @@ export class DbServiceService {
   private apiUrlCursos = 'http://localhost:3000/cursos';
 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   getCursos(): Observable<Curso[]> {
     return this.http.get<Curso[]>(this.apiUrlCursos);
   }
 
   addCurso(curso: Curso): Observable<Curso> {
-    return this.http.post<Curso>(this.apiUrlCursos, curso);
+    return this.http.post<Curso>(this.apiUrlCursos, curso).pipe(
+      map((newCurso: Curso) => {
+        // Atualizar os colaboradores atribuídos ao curso
+        curso.colaboradoresAtribuidos.forEach(colaboradorId => {
+          this.getColaboradorById(colaboradorId).subscribe((colaborador) => {
+            if (!colaborador.cursosAtribuidos) {
+              colaborador.cursosAtribuidos = [];
+            }
+            colaborador.cursosAtribuidos.push(newCurso.id);
+            this.updateColaborador(colaborador).subscribe();
+          });
+        });
+        return newCurso;
+      })
+    );
   }
 
   getColaboradores(): Observable<Colaborador[]> {
@@ -63,5 +78,18 @@ export class DbServiceService {
         return Array.from(departamentosSet);
       })
     );
+  }
+  // Obter cursos atribuídos ao colaborador pelo ID do colaborador
+  getCursosPorColaboradorId(colaboradorId: string): Observable<Curso[]> {
+    return this.http.get<Curso[]>(`http://localhost:3000/cursos?colaboradorId=${colaboradorId}`);
+  }
+
+
+  getCursosAtribuidos(): Observable<Curso[]> {
+    const colaborador = this.authService.getCurrentUser();
+    if (colaborador) {
+      return this.http.get<Curso[]>(`/api/cursos/colaborador/${colaborador.id}`);
+    }
+    return of([]); // Retorna um array vazio se não houver colaborador
   }
 }

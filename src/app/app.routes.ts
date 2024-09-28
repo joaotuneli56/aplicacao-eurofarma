@@ -7,6 +7,7 @@ import { ListaColaboradoresFunComponent } from './components/lista-colaboradores
 import { ListaColaboradoresGestorComponent } from './components/lista-colaboradores-gestor/listacolaboradoresgestor.component';
 import { EditarColaboradorComponent } from './components/editar-colaborador/editarcolaborador.component';
 import { CadastroCursoComponent } from './components/cadastro-curso/cadastrocurso.component';
+import { AreaAprendizadoComponent } from './components/area-aprendizado/area-aprendizado.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -18,5 +19,6 @@ export const routes: Routes = [
   { path: 'lista-colaboradores-gestor', component: ListaColaboradoresGestorComponent },
   { path: 'editarcolaborador/:id', component: EditarColaboradorComponent },
   { path: 'cadastro-curso', component: CadastroCursoComponent },
+  { path: 'area-aprendizado-fun', component: AreaAprendizadoComponent },
   { path: '**', redirectTo: '/login' } // Redireciona para a página de login em caso de rota não encontrada
 ];
