@@ -44,15 +44,6 @@
       "gestor": false
     },
     {
-      "id": "8",
-      "nome": "Rodrigo Batista",
-      "email": "rodrigo.batista@empresa.com",
-      "senha": "senha852",
-      "departamento": "Recursos Humanos",
-      "cargo": "Coordenador de RH",
-      "gestor": true
-    },
-    {
       "id": "9",
       "nome": "Eduardo Santos",
       "email": "eduardo.santos@empresa.com",
@@ -89,14 +80,6 @@
       "gestor": false
     },
     {
-      "nome": "Sofia Mendes",
-      "email": "sofia.mendes@empresa.com",
-      "departamento": "Recursos Humanos",
-      "cargo": "Analista de Benefícios",
-      "gestor": false,
-      "id": "13"
-    },
-    {
       "id": "14",
       "nome": "Rafael Duarte",
       "email": "rafael.duarte@empresa.com",
@@ -130,15 +113,6 @@
       "cargo": "Analista de Treinamento",
       "gestor": false,
       "id": "17"
-    },
-    {
-      "id": "18",
-      "nome": "Leandro Martins",
-      "email": "leandro.martins@empresa.com",
-      "senha": "senha357",
-      "departamento": "Tecnologia da Informação",
-      "cargo": "Desenvolvedor Back-End",
-      "gestor": false
     },
     {
       "id": "19",
@@ -195,39 +169,39 @@
       "gestor": false
     },
     {
-      "id": 0,
+      "id": "9177",
       "nome": "João Pedro",
-      "email": "joao.pedro@email.com",
-      "senha": "senha123",
-      "departamento": "Tecnologia da Informação",
-      "cargo": "Engenheiro DevOps",
-      "gestor": false
-    },
-    {
-      "id": 7263,
-      "nome": "Usuario teste",
-      "email": "teste@teste.com.br",
-      "senha": "teste",
-      "departamento": "Financeiro",
-      "cargo": "tester",
-      "gestor": true
-    },
-    {
-      "id": 3106,
-      "nome": "teste",
-      "email": "teste@teste.com.br",
-      "senha": "teste",
+      "email": "joao.tunli@gmail.com",
+      "senha": "1234",
       "departamento": "Comercial",
-      "cargo": "testador",
+      "cargo": "Dev Senior",
       "gestor": false
     },
     {
-      "id": 1076,
-      "nome": "Claudio Costa",
-      "email": "claudio.costa@gmail.com",
-      "senha": "senha123",
-      "departamento": "Marketing",
-      "cargo": "Analista de Resoluções",
+      "id": 6300,
+      "nome": "João Pedro",
+      "email": "joaotunelipedromoura@gmail.com",
+      "senha": "WWWW",
+      "departamento": "Comercial",
+      "cargo": "desenvolvedor",
+      "gestor": false
+    },
+    {
+      "id": 8072,
+      "nome": "João Pedro",
+      "email": "joao@joao.com",
+      "senha": "123",
+      "departamento": "Comercial",
+      "cargo": "sla",
+      "gestor": false
+    },
+    {
+      "id": 5666,
+      "nome": "usuario1",
+      "email": "email@email.com",
+      "senha": "123",
+      "departamento": "Recursos Humanos",
+      "cargo": "Analista de RH",
       "gestor": false
     }
   ],

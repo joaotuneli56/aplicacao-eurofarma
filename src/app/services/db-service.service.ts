@@ -11,7 +11,6 @@ export class DbServiceService {
   private apiUrl = 'http://localhost:3000/colaboradores';
   private apiUrlCursos = 'http://localhost:3000/cursos';
 
-
   constructor(private http: HttpClient) {}
 
   getCursos(): Observable<Curso[]> {
@@ -32,13 +31,8 @@ export class DbServiceService {
   }
 
   addColaborador(colaborador: Colaborador): Observable<Colaborador> {
+    colaborador.id = this.generateId(); // Garante que o ID seja gerado corretamente
     return this.http.post<Colaborador>(this.apiUrl, colaborador);
-  }
-
-  private generateId(): number {
-    // Lógica para gerar um ID único, por exemplo, pegar o último ID e incrementar
-    // Supondo que você tenha uma forma de obter todos os colaboradores primeiro
-    return Math.floor(Math.random() * 10000); // Exemplo simples
   }
 
   updateColaborador(colaborador: Colaborador): Observable<Colaborador> {
@@ -63,5 +57,9 @@ export class DbServiceService {
         return Array.from(departamentosSet);
       })
     );
+  }
+
+  generateId(): number {
+    return Math.floor(Math.random() * 10000); // Método para gerar ID único
   }
 }

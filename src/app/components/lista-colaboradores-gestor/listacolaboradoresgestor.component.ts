@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { Colaborador } from '../../Models/colaborador';
@@ -18,14 +19,28 @@ import { CadastroComponent } from '../cadastro/cadastro.component';
 })
 
 export class ListaColaboradoresGestorComponent implements OnInit {
-  colaboradores: any[] = [];
+  colaboradores: Colaborador[] = [];
   departamentoGestor: string | null = null;
 
-  constructor(private dbService: DbServiceService, private router: Router) {}
+  constructor(private dbService: DbServiceService, private AuthService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
+    // Recuperar o usuário atual logado
+    const gestor = this.AuthService.getCurrentUser();
+
+    // Verifica se o gestor está logado e obtém seu departamento
+    if (gestor) {
+      this.departamentoGestor = gestor.departamento; // Supondo que o objeto do gestor tenha o campo departamento
+    }
+
+    // Obtém todos os colaboradores e filtra pelo departamento do gestor
+    this.atualizarColaboradores();
+  }
+
+  atualizarColaboradores(): void {
     this.dbService.getColaboradores().subscribe(data => {
-      this.colaboradores = data;
+      // Filtra os colaboradores com base no departamento do gestor
+      this.colaboradores = data.filter(colaborador => colaborador.departamento === this.departamentoGestor);
     });
   }
 
@@ -44,14 +59,8 @@ export class ListaColaboradoresGestorComponent implements OnInit {
   logout(): void {
     this.router.navigate(['/login']);
   }
-    onColaboradorAdicionado(): void {
-    this.atualizarColaboradores();
-  }
 
-  atualizarColaboradores(): void {
-     this.dbService.getColaboradores().subscribe(data => {
-       // Filtra os colaboradores com base no departamento do gestor
-       this.colaboradores = data.filter(colaborador => colaborador.departamento === this.departamentoGestor);
-     });
+  onColaboradorAdicionado(): void {
+    this.atualizarColaboradores();
   }
 }
